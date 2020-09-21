@@ -1,4 +1,4 @@
-![Summery figure](https://github.com/nthieu173/renewable_energy_analysis/blob/gh-pages/Touchpoint%20Renewable%20energy%20adoption.svg)
+![Summary figure](./Touchpoint Renewable energy adoption.svg)
 
 ## Significance of factors affecting renewable energy production
 
