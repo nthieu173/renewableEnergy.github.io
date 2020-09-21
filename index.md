@@ -1,4 +1,6 @@
-## Welcome to GitHub Pages
+![Summery figure](https://github.com/nthieu173/renewable_energy_analysis/blob/gh-pages/Touchpoint%20Renewable%20energy%20adoption.svg)
+
+## Significance of factors affecting renewable energy production
 
 You can use the [editor on GitHub](https://github.com/nthieu173/renewableEnergy.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
