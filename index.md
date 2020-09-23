@@ -1,10 +1,21 @@
 ![Summary figure](./Touchpoint Renewable energy adoption.svg)
 
-## Significance of factors affecting renewable energy production
+# Introduction
 
-You can use the [editor on GitHub](https://github.com/nthieu173/renewableEnergy.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Climate change caused by human emission of greenhouse gas is an ongoing crisis that has and will continue to be a major part of our life.
+A warmer ocean will bring more intense storms and hurricane, a warmer arctic has the potential to thaw ancient diseases that had been buried under the snow
+and the vanishing ice caps will bring coastal floodings which will affect almost all major population centers around the globe.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Furthermore, even if we disregard the long term effects of global warming, the mining of fossil fuels has ravaged the environment in ways of oil spills,
+waste water pollution and the shrinking habitats of wildlife. It is clear that we must switch a renewable sources of energy sooner rather than later.
+
+However, even if people agree on the neccessity of renewable energy, there is still many questions and reservations toward the development of renewable
+energy:
+- Is renewable energy more expensive compared to fossil fuels?
+- To what degree is a favorable geography neccessary for renewable energy production?
+- How do we encourage renewable energy production in the most efficient way?
+
+We will attempt to answer these questions using machine learning techniques performed on data from the EIA.
 
 ### Markdown
 
