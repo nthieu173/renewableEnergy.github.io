@@ -5,6 +5,9 @@ https://nthieu173.github.io/renewable_energy_analysis/
 
 ## Authors
 Albert Xing
+
 Alexander George-Kennedy 
+
 Hieu Nguyen
+
 Wei Xiong Toh
