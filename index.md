@@ -9,7 +9,7 @@ and the vanishing ice caps will bring coastal floodings which will affect almost
 Furthermore, even if we disregard the long term effects of global warming, the mining of fossil fuels has ravaged the environment in ways of oil spills,
 waste water pollution and the shrinking habitats of wildlife. In addition, the precipitous rate of depletion of our fossil fuel reserves underscores the worrying trend that we are overly reliant on them as a source of energy. It is clear that we must switch a renewable sources of energy sooner rather than later.
 
-Over [85%][https://www.pewresearch.org/fact-tank/2020/01/15/renewable-energy-is-growing-fast-in-the-u-s-but-fossil-fuels-still-dominate/] of the energy used in the US in 2018 was generated from non-renewable sources of energy (coal, petroleum, natural gas and nuclear). While there has been a positive trend in the production of renewable energy,  there are still many questions and reservations toward the development of renewable
+Over [85%](https://www.pewresearch.org/fact-tank/2020/01/15/renewable-energy-is-growing-fast-in-the-u-s-but-fossil-fuels-still-dominate/) of the energy used in the US in 2018 was generated from non-renewable sources of energy (coal, petroleum, natural gas and nuclear). While there has been a positive trend in the production of renewable energy,  there are still many questions and reservations toward the development of renewable
 energy:
 - Is renewable energy more expensive compared to fossil fuels?
 - To what degree is a favorable geography neccessary for renewable energy production?
