@@ -28,7 +28,7 @@ Data on the production of renewable energy by state and the retail price of elec
     - [Average wind direction and speed](https://www.ncdc.noaa.gov/societal-impacts/wind/)
     - [Average solar radiation](https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/solar-radiation) (1991-2010)
     - [Waterway mileage](https://www.statista.com/statistics/187350/us-inland-waterway-mileage-2008/) and [reservoir size](https://waterdata.usgs.gov/nwis/current/?type=lake&group_key=state_cd&site_no_name_select=siteno)
-    - [Temperature](https://www.ncdc.noaa.gov/temp-and-precip/us-maps/1/202007)
+    - [Temperature](https://www.ncdc.noaa.gov/temp-and-precip/us-maps/1/202007) [1]
     - [Precipitation](https://www.ncdc.noaa.gov/temp-and-precip/us-maps/1/202007)
     - [Size of state](https://www.census.gov/geographies/reference-files/2010/geo/state-area.html) [//]: # (has water body data too)
 
@@ -54,4 +54,4 @@ We will identify the factors that are the most relevant in our analysis with PCA
 best outcome, what it would mean, what is next.....
 
 # References
-list containing at least three references, preferably peer reviewed
+1. Dumas, A., Andrisani, A., Bonnici, M., Graditi, G., Leanza, G., Madonia, M., &amp; Trancossi, M. (2015). A new correlation between global solar energy radiation and daily temperature variations. Solar Energy, 116, 117-124. doi:10.1016/j.solener.2015.04.002
