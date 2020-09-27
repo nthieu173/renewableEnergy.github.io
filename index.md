@@ -3,19 +3,21 @@
 # Introduction
 
 Climate change caused by human emission of greenhouse gas is an ongoing crisis that has and will continue to be a major part of our life.
-A warmer ocean will bring more intense storms and hurricane, a warmer arctic has the potential to thaw ancient diseases that had been buried under the snow
-and the vanishing ice caps will bring coastal floodings which will affect almost all major population centers around the globe.
+A warmer ocean will bring more intense storms and hurricane, a warmer arctic has the potential to thaw ancient diseases that had been buried under the snow and the vanishing ice caps will bring coastal floodings which will affect almost all major population centers around the globe.
 
-Furthermore, even if we disregard the long term effects of global warming, the mining of fossil fuels has ravaged the environment in ways of oil spills,
-waste water pollution and the shrinking habitats of wildlife. In addition, the precipitous rate of depletion of our fossil fuel reserves underscores the worrying trend that we are overly reliant on them as a source of energy. It is clear that we must switch a renewable sources of energy sooner rather than later.
+Even if we disregard the long term effects of global warming, the mining of fossil fuels has ravaged the environment in ways of oil spills, waste water pollution and the shrinking habitats of wildlife.
+In addition, the precipitous rate of depletion of our fossil fuel reserves underscores the worrying trend that we are overly reliant on them as a source of energy.
+It is clear that we must switch renewable sources of energy sooner rather than later.
 
-Over [85%](https://www.pewresearch.org/fact-tank/2020/01/15/renewable-energy-is-growing-fast-in-the-u-s-but-fossil-fuels-still-dominate/) of the energy used in the US in 2018 was generated from non-renewable sources of energy (coal, petroleum, natural gas and nuclear). While there has been a positive trend in the production of renewable energy,  there are still many questions and reservations toward the development of renewable
-energy:
+[80%](https://www.eia.gov/energyexplained/us-energy-facts/) of the energy used in the US in 2019 was generated from non-renewable sources of energy (coal, petroleum, natural gas and nuclear).
+While there has been a positive trend in the production of renewable energy, there are still many questions and reservations toward the development of renewable energy:
 - Is renewable energy more expensive compared to fossil fuels?
 - To what degree is a favorable geography neccessary for renewable energy production?
 - How do we encourage renewable energy production in the most efficient way?
 
-We will attempt to answer these questions using machine learning techniques performed on data from the Energy and Information Administration (EIA) and other sources.
+Current applications of machine learning techniques to renewable energy is mostly be limited to local prediction or optimization of renewable energy production and not on answering these important holistic questions which will be of vital importance to policymakers and investors who shapes the development of renewable energy in their local states.
+
+We will attempt to answer these questions using machine learning techniques performed on data from the Energy and Information Administration (EIA) and other sources of geographical, political and economics data.
 
 # Methods
 
