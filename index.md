@@ -48,6 +48,11 @@ We will identify the factors that are the most relevant in our analysis with PCA
 - (We could do something like predicting the energy price given certain information?)
 
 # Results 
+Once we have completed the necessary tests and analysis, we'll be looking for the factors that have significance in the development of more renewable energy. 
+
+One of the most important results we'll be looking at is the feasibility of producing renewable energy via sources like wind, hydro, and solar. Using PCA for predictive modeling, we should be able to see how much energy should be produced from each of the options and how this might change in the future. We'll also have to consider economic factors, seeing how advances in technology make these options more economically viable compared to the current alternative of oil and gas production. 
+
+Another important set of factors to look at will be how geography affects the realistic production of energies across the country. Obviously areas with a lack of sunlight or bodies of water may have more trouble producing hydro or solar power compared to areas with these natural resources steadily available. With the data we've prepared and analyzed, we should be able to show relevant differences between non-renewable sources of energy with renewable sources. 
 
 # Discussion
 
