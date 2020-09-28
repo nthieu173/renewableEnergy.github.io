@@ -36,16 +36,12 @@ Data on the production of renewable energy by state and the retail price of elec
     - [Oil and gas production](https://www.ncsl.org/research/energy/oil-and-gas-severance-taxes.aspx)
 
 + Demographic information from the [Census Bureau](https://www.census.gov/quickfacts/fact/table/US/PST045219)
-+ [Political affliation](https://www.pewforum.org/religious-landscape-study/compare/party-affiliation/by/state/)
 
 ## Unsupervized Learning
-We will identify the factors that are the most relevant in our analysis with PCA and use (??) method to analyze how these factors affect the production of renewable energy in the US. Subsequently, we plan to use hyperparameter tuning to optimize the training and performance of our model. 
-
-- K fold cross validation?
-
+We will identify the factors that are the most relevant in our analysis with PCA to analyze how these factors affect the production of renewable energy in the US and use the various clustering methods to classify the state as being successful or unsuccessful in renewable energy production. Subsequently, we plan to use hyperparameter tuning to optimize the training and performance of our model. 
 
 ## Supervized Learning
-- (We could do something like predicting the energy price given certain information?)
+Our project also aims to use either a regression model or neural network to predict the price of electricity in the state given a certain percentage of renewable energy production. 
 
 # Results 
 Once we have completed the necessary tests and analysis, we'll be looking for the factors that have significance in the development of more renewable energy. 
@@ -60,3 +56,5 @@ best outcome, what it would mean, what is next.....
 
 # References
 1. Dumas, A., Andrisani, A., Bonnici, M., Graditi, G., Leanza, G., Madonia, M., &amp; Trancossi, M. (2015). A new correlation between global solar energy radiation and daily temperature variations. Solar Energy, 116, 117-124. doi:10.1016/j.solener.2015.04.002
+
+2. 
