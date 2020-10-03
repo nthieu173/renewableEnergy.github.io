@@ -15,7 +15,7 @@ While there has been a positive trend in the production of renewable energy, the
 - To what degree is a favorable geography neccessary for renewable energy production?
 - How do we encourage renewable energy production in the most efficient way?
 
-Current applications of machine learning techniques to renewable energy is mostly be limited to local prediction or optimization of renewable energy production and not on answering these important holistic questions which will be of vital importance to policymakers and investors who shapes the development of renewable energy in their local states.
+Current applications of machine learning techniques to renewable energy is mostly be limited to local prediction or optimization of renewable energy production and not on answering these important holistic questions. While forecasting wind power [1] or solar power [2] are doubtlessly important, they are not as important as holistic questions to policymakers and investors who shapes the development of renewable energy in their local states. And although studies which answer these questions do exist [3], they do not employ machine learning techniques.
 
 We will attempt to answer these questions using machine learning techniques performed on data from the Energy and Information Administration (EIA) and other sources of geographical, political and economics data.
 
@@ -28,9 +28,9 @@ Data on the production of renewable energy by state and the retail price of elec
     - [Average wind direction and speed](https://www.ncdc.noaa.gov/societal-impacts/wind/)
     - [Average solar radiation](https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/solar-radiation) (1991-2010)
     - [Waterway mileage](https://www.statista.com/statistics/187350/us-inland-waterway-mileage-2008/) and [reservoir size](https://waterdata.usgs.gov/nwis/current/?type=lake&group_key=state_cd&site_no_name_select=siteno)
-    - [Temperature](https://www.ncdc.noaa.gov/temp-and-precip/us-maps/1/202007) [1]
+    - [Temperature](https://www.ncdc.noaa.gov/temp-and-precip/us-maps/1/202007) [4]
     - [Precipitation](https://www.ncdc.noaa.gov/temp-and-precip/us-maps/1/202007)
-    - [Size of state](https://www.census.gov/geographies/reference-files/2010/geo/state-area.html) [//]: # (has water body data too)
+    - [Size of state](https://www.census.gov/geographies/reference-files/2010/geo/state-area.html)
 
 + Taxes
     - [Oil and gas production](https://www.ncsl.org/research/energy/oil-and-gas-severance-taxes.aspx)
@@ -57,6 +57,10 @@ Our goals are twofold: first, we wish to see which factors in a state contribute
 Our second goal is to develop a model that predicts the energy price in a given state based on a set of factors, the most important of which is the percentage of energy produced by renewable means in that state. Hopefully, we can show that in the long run, energy cost goes down given an increase in renewable energy sources. This will provide a direct economic motivation for green energy.
 
 # References
-1. Dumas, A., Andrisani, A., Bonnici, M., Graditi, G., Leanza, G., Madonia, M., &amp; Trancossi, M. (2015). A new correlation between global solar energy radiation and daily temperature variations. Solar Energy, 116, 117-124. doi:10.1016/j.solener.2015.04.002
+1. Demolli, H., Dokuz, A. S., Ecemis, A., &amp; Gokcek, M. (2019). Wind power forecasting based on daily wind speed data using machine learning algorithms. Energy Conversion and Management, 198(111823). doi:https://doi.org/10.1016/j.enconman.2019.111823
 
-2. 
+2. Aggarwal, S., &amp; Saini, L. (2014). Solar energy prediction using linear and non-linear regularization models: A study on AMS (American Meteorological Society) 2013–14 Solar Energy Prediction Contest. Energy, 78, 247-256. doi:10.1016/j.energy.2014.10.012
+
+3. Owusu, P. A., &amp; Asumadu-Sarkodie, S. (2016). A review of renewable energy sources, sustainability issues and climate change mitigation. Cogent Engineering, 3(1). doi:10.1080/23311916.2016.1167990
+
+4. Dumas, A., Andrisani, A., Bonnici, M., Graditi, G., Leanza, G., Madonia, M., &amp; Trancossi, M. (2015). A new correlation between global solar energy radiation and daily temperature variations. Solar Energy, 116, 117-124. doi:10.1016/j.solener.2015.04.002
