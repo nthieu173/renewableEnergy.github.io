@@ -57,7 +57,7 @@ Our goals are twofold: first, we wish to see which factors in a state contribute
 Our second goal is to develop a model that predicts the energy price in a given state based on a set of factors, the most important of which is the percentage of energy produced by renewable means in that state. Hopefully, we can show that in the long run, energy cost goes down given an increase in renewable energy sources. This will provide a direct economic motivation for green energy.
 
 # References
-1. Demolli, H., Dokuz, A. S., Ecemis, A., &amp; Gokcek, M. (2019). Wind power forecasting based on daily wind speed data using machine learning algorithms. Energy Conversion and Management, 198(111823). doi:https://doi.org/10.1016/j.enconman.2019.111823
+1. Demolli, H., Dokuz, A. S., Ecemis, A., &amp; Gokcek, M. (2019). Wind power forecasting based on daily wind speed data using machine learning algorithms. Energy Conversion and Management, 198(111823). doi:10.1016/j.enconman.2019.111823
 
 2. Aggarwal, S., &amp; Saini, L. (2014). Solar energy prediction using linear and non-linear regularization models: A study on AMS (American Meteorological Society) 2013–14 Solar Energy Prediction Contest. Energy, 78, 247-256. doi:10.1016/j.energy.2014.10.012
 
