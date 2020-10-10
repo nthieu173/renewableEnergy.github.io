@@ -1,0 +1,1 @@
+https://maps-data.nrel.gov/ows?outputFormat=SHAPE-ZIP&propertyName=dni%2Cthe_geom_4326&request=GetFeature&service=WFS&typeName=nsrdb%3Ansrdb_v3_0_1_2000_dni&version=1.0.0

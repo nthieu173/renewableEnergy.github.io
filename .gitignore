@@ -1,0 +1,5 @@
+solar_radiance/*/*.cst
+solar_radiance/*/*.dbf
+solar_radiance/*/*.prj
+solar_radiance/*/*.shp
+solar_radiance/*/*.shx

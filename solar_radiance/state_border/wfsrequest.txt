@@ -1,0 +1,1 @@
+https://maps-data.nrel.gov/ows?outputFormat=SHAPE-ZIP&propertyName=state_name%2Cstate_fips%2Carea%2Csub_region%2Cstate_abbr%2Cgeom4326&request=GetFeature&service=WFS&typeName=nsrdb%3Aus_states_simple&version=1.0.0
