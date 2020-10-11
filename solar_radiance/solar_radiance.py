@@ -9,17 +9,17 @@ from multiprocessing.pool import ThreadPool
 import shapefile
 from shapely.geometry import shape
 
-if not os.path.isfile("./state_border/us_states_simple.shp"):
+if not os.path.isfile("state_border/us_states_simple.shp"):
     print("Downloading state border data")
     link = ""
-    with open("./state_border/wfsrequest.txt") as f:
+    with open("state_border/wfsrequest.txt") as f:
         link = f.readline()
     r = requests.get(link, stream=True)
     with open("us_states_simple.zip", 'wb') as f:
         for chunk in r.iter_content(chunk_size=128):
             f.write(chunk)
     with zipfile.ZipFile("us_states_simple.zip", 'r') as zip_ref:
-        zip_ref.extractall("./state_border")
+        zip_ref.extractall("state_border")
     os.remove("us_states_simple.zip")
 print("Checked state border data")
 
@@ -33,18 +33,18 @@ with shapefile.Reader("state_border/us_states_simple") as us_states:
         states_shape[state_abbr] = shape(shapeRec.shape)
 
 def download_year(year):
-    if not os.path.isfile("./{}/nsrdb_v3_0_1_{}_dni.shp".format(year, year)):
+    if not os.path.isfile("{}/nsrdb_v3_0_1_{}_dni.shp".format(year, year)):
         print("Downloading data for year {}".format(year))
         link = ""
-        with open("./{}/wfsrequest.txt".format(year)) as f:
+        with open("{}/wfsrequest.txt".format(year)) as f:
             link = f.readline()
         r = requests.get(link, stream=True)
         with open("{}.zip".format(year), 'wb') as f:
             for chunk in r.iter_content(chunk_size=128):
                 f.write(chunk)
         with zipfile.ZipFile("{}.zip".format(year), 'r') as zip_ref:
-            zip_ref.extractall("./{}/".format(year))
-        os.remove("./{}.zip".format(year))
+            zip_ref.extractall("{}/".format(year))
+        os.remove("{}.zip".format(year))
     print("Checked data for year {}".format(year))
 
 def check_and_download_data():
@@ -55,7 +55,7 @@ def state_average_dni(year):
     print("Processing data for year {}".format(year))
     states_dni = dict([(name,0) for name in states_shape])
     states_dni_count = copy(states_dni)
-    with shapefile.Reader("./{}/nsrdb_v3_0_1_{}_dni".format(year, year)) as nsrdb:
+    with shapefile.Reader("{}/nsrdb_v3_0_1_{}_dni".format(year, year)) as nsrdb:
         for shape_rec in nsrdb:
             geom = shape(shape_rec.shape)
             dni = shape_rec.record[0]
