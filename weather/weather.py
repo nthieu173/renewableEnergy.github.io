@@ -10,14 +10,18 @@ states_names = ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA",
         "HI","ID","IL","IN","IA","KS","KY","LA","ME","MD",
         "MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ",
         "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC",
-        "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
+        "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"]
+
+# THERE IS NO WEATHER DATA FOR DC
+
+year_range = range(1998, 2017)
 
 class StateData:
     def __init__(self):
-        self.wind_speed = dict([(year,[]) for year in range(1998, 2017)]) #AWND
-        self.precipitation = dict([(year,[]) for year in range(1998, 2017)]) #PRCP
-        self.snowfall = dict([(year,[]) for year in range(1998, 2017)]) #SNOW
-        self.temperature = dict([(year,[]) for year in range(1998, 2017)]) #TAVG
+        self.wind_speed = dict([(year,[]) for year in year_range]) #AWND
+        self.precipitation = dict([(year,[]) for year in year_range]) #PRCP
+        self.snowfall = dict([(year,[]) for year in year_range]) #SNOW
+        self.temperature = dict([(year,[]) for year in year_range]) #TAVG
     
     def _take_yearly_min(measurement):
         yearly_mean = {}
@@ -64,7 +68,7 @@ def process_data():
                     if state_name is None:
                         state_name = row["NAME"].split(",")[1].split()[0]
                     year = int(row["DATE"])
-                    if year in range(1998, 2017):
+                    if year in year_range:
                         if field_exists(row,"AWND"):
                             states[state_name].wind_speed[year] += [float(row["AWND"])*10]#m/s
                         if field_exists(row, "PRCP"):
@@ -87,32 +91,32 @@ def main():
     temperature = dict([(name, []) for name in states])
     for name in states:
         state = states[name]
-        for year in range(1998, 2017):
+        for year in year_range:
             windspeed[name] += [state["windspeed"][year]]
             precipitation[name] += [state["precipitation"][year]]
             snowfall[name] += [state["snowfall"][year]]
             temperature[name] += [state["temperature"][year]]
     with open("us_states_annual_average_windspeed.csv", "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["State"]+[i for i in range(1998, 2017)])
+        csvwriter.writerow(["State"]+[i for i in year_range])
         for name in windspeed:
             csvwriter.writerow([name]+windspeed[name])
     print("Written average radiance data to us_states_annual_average_windspeed.csv")
     with open("us_states_annual_average_precipitation.csv", "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["State"]+[i for i in range(1998, 2017)])
+        csvwriter.writerow(["State"]+[i for i in year_range])
         for name in precipitation:
             csvwriter.writerow([name]+precipitation[name])
     print("Written average radiance data to us_states_annual_average_precipitation.csv")
     with open("us_states_annual_average_snowfall.csv", "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["State"]+[i for i in range(1998, 2017)])
+        csvwriter.writerow(["State"]+[i for i in year_range])
         for name in snowfall:
             csvwriter.writerow([name]+snowfall[name])
     print("Written average radiance data to us_states_annual_average_snowfall.csv")
     with open("us_states_annual_average_temperature.csv", "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["State"]+[i for i in range(1998, 2017)])
+        csvwriter.writerow(["State"]+[i for i in year_range])
         for name in temperature:
             csvwriter.writerow([name]+temperature[name])
     print("Written average radiance data to us_states_annual_average_temperature.csv")
