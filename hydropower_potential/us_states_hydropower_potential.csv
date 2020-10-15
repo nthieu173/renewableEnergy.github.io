@@ -1,6 +1,6 @@
-State, Potential_Capacity_MW,Potential_Generation_GWH_YR
+State,PotentialCapacityMW,PotentialGenerationGWHYR
 AL,646,3435
-AK,4530,39682.8
+AK,4530,39683
 AZ,515,3090
 AR,1108,5964
 CA,3360,18570
@@ -49,3 +49,4 @@ WA,6055,35442
 WV,1228,6444
 WI,522,3287
 WY,2476,13949
+DC,0,0
