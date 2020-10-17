@@ -35,12 +35,11 @@ class Data():
                 continue
             try:
                 new_data = pd.read_csv(os.path.join(self.data_dir, file), index_col='State')
-                # print('new')
             except:
                 try:
                     new_data = pd.read_csv(os.path.join(self.data_dir, file), index_col='STATE')
                 except:
-                    print(f'{index}. {file} unsuccessful.')
+                    print(f'ERROR: {index}. {file} unsuccessful.')
                     continue
             data_to_add = new_data[self.year_index]
             data_to_add = data_to_add.stack()
@@ -77,16 +76,16 @@ class Data():
 
         with open("hydropower_potential/us_states_hydropower_potential.csv") as file:
             csv_reader = csv.DictReader(file)
-            self.data['potential_hydro_cap'] = ''
-            self.data['PotentialGenerationGWHYR'] = ''
+            # self.data['potential_hydro_cap'] = ''
+            # self.data['potential_hydro_gen'] = ''
             for row in csv_reader:
                 for year in range(self.year_from, self.year_to + 1):
                     self.data.loc[(self.data.index.get_level_values(0)==row["State"]) &
                                   (self.data.index.get_level_values(1)==str(year)), "potential_hydro_cap"] \
-                        = float(row["PotentialCapacityMW"])
+                        = int(row["PotentialCapacityMW"])
                     self.data.loc[(self.data.index.get_level_values(0)==row["State"]) &
                                   (self.data.index.get_level_values(1)==str(year)),"potential_hydro_gen"] \
-                        = float(row["PotentialGenerationGWHYR"])
+                        = int(row["PotentialGenerationGWHYR"])
         return
 
     def add_state_area_data(self):
