@@ -25,6 +25,10 @@ class Data():
         self.drop_DC = drop_DC
         if self.drop_DC:
             self.states_names.remove("DC")
+        self.renew_list = ['electricity_generated_from_biomass', 'electricity_generated_from_geothermal',
+                           'electricity_generated_from_hydroelectrical', 'electricity_generated_from_pump_storage',
+                           'electricity_generated_from_solar_and_photovoltaics', 'electricity_generated_from_wind',
+                           'electricity_generated_from_wood_and_wood_derivatives']
 
     def mass_add_data(self):
         """
@@ -97,10 +101,21 @@ class Data():
                         = float(row["Total Area (Sq. Mi.)"].replace(',', ''))
         return
 
+
+    def calculate_renew_pc(self):
+        self.total_gen = self.gen_data.sum(axis=1) + 1e-32
+        renew_df = self.gen_data.loc[self.gen_data.index, self.renew_list]
+        renew_pc = renew_df.div(self.total_gen, axis=0) * 100
+        self.renew_pc = renew_pc.sum(axis=1)
+        self.renew_pc.name = 'renewable_energy_percentage'
+
+
     def __call__(self, *args, **kwargs):
         self.mass_add_data()
         self.add_hydropower_potential_data()
         self.add_state_area_data()
+
+        self.calculate_renew_pc()
 
         if not self.gen_data.empty:
             self.data = pd.merge(self.data, self.gen_data, on=['State', 'Year'], how='outer')
