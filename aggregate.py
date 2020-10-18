@@ -20,6 +20,9 @@ class Data():
         self.year_index = []
         for year in range(self.year_from, self.year_to + 1):
             self.year_index.append(str(year))
+        self.drop_DC = True
+        if self.drop_DC:
+            self.states_names.remove("DC")
 
     def mass_add_data(self):
         """
@@ -41,7 +44,7 @@ class Data():
                 except:
                     print(f'ERROR: {index}. {file} unsuccessful.')
                     continue
-            data_to_add = new_data[self.year_index]
+            data_to_add = new_data.loc[new_data.index != 'DC', self.year_index] if self.drop_DC else new_data[self.year_index]
             data_to_add = data_to_add.stack()
             feature = file.split('.')[0]
             data_to_add.name = feature
