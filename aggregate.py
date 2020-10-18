@@ -4,7 +4,7 @@ import os
 import time
 
 class Data():
-    def __init__(self, year_from, year_to, data_file_name):
+    def __init__(self, year_from, year_to, data_file_name, drop_DC=True):
         self.states_names = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
                 "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
                 "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
@@ -17,10 +17,12 @@ class Data():
         self.data_dir = os.path.join(self.base_dir, 'data')
         self.exclude = ['hydropower_potential.csv', 'total_state_area.csv']
         self.data = pd.Series(dtype=object)
+        self.gen_data = pd.Series(dtype=object)
+        self.renew_pc = pd.Series(dtype=object)
         self.year_index = []
         for year in range(self.year_from, self.year_to + 1):
             self.year_index.append(str(year))
-        self.drop_DC = True
+        self.drop_DC = drop_DC
         if self.drop_DC:
             self.states_names.remove("DC")
 
@@ -49,10 +51,22 @@ class Data():
             feature = file.split('.')[0]
             data_to_add.name = feature
             data_to_add.index.names = ['State','Year']
-            if self.data.empty:
-                self.data = data_to_add
+
+            # Consolidate data with electricity generated and percentage at the back
+            if file.split('_')[1] == 'generated':
+                if self.gen_data.empty:
+                    self.gen_data = data_to_add
+                else:
+                    self.gen_data = pd.merge(self.gen_data, data_to_add, on=['State', 'Year'], how='outer')
+            elif file.split('.')[0] == 'percentage_renewable':
+                if self.renew_pc.empty:
+                    self.renew_pc = data_to_add
+                    self.renew_pc.name = 'percentage_renewable'
             else:
-                self.data = pd.merge(self.data, data_to_add, on=['State','Year'], how='outer')
+                if self.data.empty:
+                    self.data = data_to_add
+                else:
+                    self.data = pd.merge(self.data, data_to_add, on=['State','Year'], how='outer')
 
             print(f'{index}. {feature} added.')
 
@@ -60,27 +74,8 @@ class Data():
         return
 
     def add_hydropower_potential_data(self):
-        # hydro_data = pd.read_csv(os.path.join(self.data_dir, 'hydropower_potential.csv'), index_col=0)
-        # hydro_data.columns = ['hydropower_potential_capacity', 'hypdropower_potential_generation_GWHYR']
-        # for column in hydro_data.columns:
-        #     new_data = hydro_data[column]
-        #     new_data_list = [new_data] * len(self.year_index)
-        #     new_data = pd.concat(new_data_list, axis=1)
-        #     new_data.columns = self.year_index
-        #     new_data = new_data.stack()
-        #     new_data.index.names = ['State','Year']
-        #     new_data.name = column
-        #     print(new_data)
-        #     self.data = pd.merge(self.data, new_data, on=['State','Year'], how='outer')
-        #
-        # self.data.fillna(0, inplace=True)
-        # print('Hydropower potential added.')
-        # return
-
         with open("hydropower_potential/us_states_hydropower_potential.csv") as file:
             csv_reader = csv.DictReader(file)
-            # self.data['potential_hydro_cap'] = ''
-            # self.data['potential_hydro_gen'] = ''
             for row in csv_reader:
                 for year in range(self.year_from, self.year_to + 1):
                     self.data.loc[(self.data.index.get_level_values(0)==row["State"]) &
@@ -92,22 +87,6 @@ class Data():
         return
 
     def add_state_area_data(self):
-        # area_data = pd.read_csv(os.path.join(self.data_dir, 'total_state_area.csv'), index_col=0, thousands=',')
-        # area_data.columns = ['total_state_area']
-        #
-        # new_data_list = [area_data] * len(self.year_index)
-        # new_data = pd.concat(new_data_list, axis=1)
-        # new_data.columns = self.year_index
-        # new_data = new_data.stack()
-        # new_data.index.names = ['State', 'Year']
-        # new_data.name = area_data.columns[0]
-        # print(new_data)
-        # self.data = pd.merge(self.data, new_data, on=['State', 'Year'], how='outer')
-        # self.data.fillna(0, inplace=True)
-        #
-        # print('State area added.')
-        # return
-
         with open("state_geography/total_state_area.csv") as file:
             csv_reader = csv.DictReader(file)
             self.data['total_state_area'] = ''
@@ -123,15 +102,17 @@ class Data():
         self.add_hydropower_potential_data()
         self.add_state_area_data()
 
+        if not self.gen_data.empty:
+            self.data = pd.merge(self.data, self.gen_data, on=['State', 'Year'], how='outer')
+        if not self.renew_pc.empty:
+            self.data = pd.merge(self.data, self.renew_pc, on=['State', 'Year'], how='outer')
+        self.data.fillna(0, inplace=True)
+
         self.data.to_csv(self.data_file_name)
         print(f'Data saved to {self.data_file_name}')
         return self.data
 
 
 if __name__ == "__main__":
-    #main()
-    # exclude = ['us_states_hydropower_potential.csv', 'total_state_area.csv']
-    # data = mass_add_data(exclude, 1998, 2016)
-    # print(os.getcwd())
     a = Data(1998, 2016, 'new_consolidated_data.csv')()
     print(a.shape)
