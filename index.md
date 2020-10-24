@@ -12,4 +12,13 @@ The full proposal can be read [here](./proposal.md).
 
 # [Unsupervised Learning](./unsupervised.md)
 
-The full report can be read [here](./unsupervised.md).
+Using unsupervised learning, we aim to answer the questions:
+- Are states with similar (absolute and/or relative) renewable energy production similar in other features?
+- Which features most strongly impact renewable energy production in states?
+
+To answer these questions, we will use:
+- Principle Component Analysis (PCA)
+- K-Means
+- Gaussian Mixture Modelling (GMM)
+
+Our results along with the full report can be read [here](./unsupervised.md).
