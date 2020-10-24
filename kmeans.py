@@ -28,8 +28,18 @@ for label in label_dict:
 
 ordered_label.sort(key=lambda c: len(c))
 
-for (k,counter) in enumerate(ordered_label):
+reversed_counter_label = []
+
+for counter in ordered_label:
+    reversed_counter = dict([(count, []) for count in counter.values()])
+    for state, count in counter.items():
+        reversed_counter[count] += [state]
+    reversed_counter_label += [reversed_counter]
+
+for (k,counter) in enumerate(reversed_counter_label):
     print("Cluster {}: ".format(k+1), end="")
-    for state in counter:
-        print("{}: {}, ".format(state, counter[state]),end="")
+    sorted_list = [(count, counter[count]) for count in counter]
+    sorted_list.sort(key=lambda t: t[0],reverse=True)
+    for count, states in sorted_list:
+        print("{}: {}, ".format(count, states),end="")
     print("")
