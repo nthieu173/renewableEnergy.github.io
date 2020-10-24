@@ -8,4 +8,8 @@ Current applications of machine learning techniques to renewable energy is mostl
 
 We will anwer these hollistic questions by using machine learning techniques performed on data from the Energy and Information Administration (EIA) and other sources of geographical, demographical and economical data.
 
+The full proposal can be read [here](./proposal.md).
+
 # [Unsupervised Learning](./unsupervised.md)
+
+The full report can be read [here](./unsupervised.md).
