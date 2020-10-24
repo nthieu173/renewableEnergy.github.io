@@ -1,4 +1,4 @@
-![Summary figure](./Touchpoint Renewable energy adoption.svg)
+![Summary figure](./images/Touchpoint Renewable energy adoption.svg)
 
 # [Proposal](./proposal.md)
 
