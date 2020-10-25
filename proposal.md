@@ -1,4 +1,4 @@
-![Summary figure](./images/Touchpoint Renewable energy adoption.svg)
+![Summary figure](./images/infographic.svg)
 
 # Introduction
 
