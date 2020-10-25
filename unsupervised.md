@@ -2,7 +2,7 @@
 
 Running preliminary k-means on the dataset and analysing the distortion, we get the result:
 
-![k-means distortion versus cluster number](./images/kmeans_elbow.svg)
+![k-means distortion versus cluster number](./images/kmeans_elbow.png)
 
 This graph is fairly smooth which means that there is probably no hard clusters which we can assign the states to. However, we can still pick k = 15 as a good cluster number.
 
