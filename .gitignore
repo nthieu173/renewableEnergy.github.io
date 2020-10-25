@@ -4,3 +4,5 @@ solar_radiance/*/*.prj
 solar_radiance/*/*.shp
 solar_radiance/*/*.shx
 weather/gsoy-latest.tar.gz
+*.xml
+.idea/renewable_energy_analysis.iml
