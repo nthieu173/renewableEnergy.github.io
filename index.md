@@ -49,7 +49,7 @@ The collected data is organized in the following format:
 | State | Year | feature_1 | feature_2 | ... | feature_n |
 | ----- | ---- | --------- | --------- | --- | --------- |
 | AK    | 1998 | ...       | ...       | ... | ...       |
-
+| ...    | ... | ...       | ...       | ... | ...       |
 
 # [Unsupervised Learning](./unsupervised.md)
 
