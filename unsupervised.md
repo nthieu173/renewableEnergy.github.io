@@ -6,6 +6,8 @@ Running preliminary k-means on the dataset and analysing the distortion, we get 
 
 This graph is fairly smooth which means that there is probably no hard clusters which we can assign the states to. However, we can still pick k = 15 as a good cluster number.
 
+
+
 Getting the result of k-means with 15 clusters and then counting the number a state appears in a cluster, we have the result:
 - Cluster 1: 19 times : TX
 - Cluster 2: 19 times: AK
