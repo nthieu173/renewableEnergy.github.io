@@ -70,5 +70,11 @@ Getting the result of k-means with 15 clusters and then counting the number of t
     + 2 times: WV, WI, IL, IN, OH
     + 1 time: MO, KY,
 
-# Principal Component Analysis
 
+# Principal Component Analysis (PCA)
+
+We performed PCA on our data to reduce the number of dimensions of the dataset. The number of components selected is based on the MLE of the data, and the results are as follows:
+
+![pca recovered variance](./images/recovered_variance.png)
+
+![pca vectors](./images/PCA_vectors_magnitude.png)
