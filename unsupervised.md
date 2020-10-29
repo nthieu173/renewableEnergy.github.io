@@ -68,4 +68,7 @@ Getting the result of k-means with 15 clusters and then counting the number of t
     + 7 times: HI
     + 3 times: PA
     + 2 times: WV, WI, IL, IN, OH
-    + 1 time: MO, KY, 
+    + 1 time: MO, KY,
+
+# Principal Component Analysis
+
