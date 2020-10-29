@@ -12,7 +12,7 @@ In doing so, we want to see if states with similar percentages of renewable ener
 
 Getting the result of k-means with 15 clusters and then counting the number of times a state appears in a cluster, we have the result:
 
-| <td colspan=15>Cluster
+| <td colspan=15>Cluster</td> |
 | 1      | 2      | 3      | 4      | 5      | 6      | 7      | 8      | 9      | 10     | 11     | 12     | 13     | 14     | 15     |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | TX: 19 | AK: 19 | CA: 19 | NM: 19 | NY: 19 | FY: 19 | HI: 12 | AZ: 19 | OR: 19 | MT: 19 | IL: 16 | ME: 19 | GA: 19 | IA: 19 | MD: 19 |
