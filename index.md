@@ -14,40 +14,41 @@ The full proposal can be read [here](./proposal.md).
 
 Since we are interested in the adoption of renewable energy by states over time, we collected the following data from 1998 - 2016:
 - Geographical:
-    1. Average Annual Direct Normal Irradiance (DNI)
-    2. Average Annual Precipitation
-    3. Average Annual Snowfall
-    4. Average Annual Temperature
-    5. Average Annual Windspeed
-    6. Total State Area
+    + Average Annual Direct Normal Irradiance (DNI)
+    + Average Annual Precipitation
+    + Average Annual Snowfall
+    + Average Annual Temperature
+    + Average Annual Windspeed
+    + Total State Area
 - Economic:
-    7. Annual Gross Domestic Product (GDP)
-    8. Annual Revenue of Electricity Providers
-    9. Annual Subsidies (?)
-    10. Average Electricity Price
-    11. Prime Supplier of Residual Oil (?)
+    + Annual Gross Domestic Product (GDP)
+    + Annual Revenue of Electricity Providers
+    + Annual Subsidies (?)
+    + Average Electricity Price
+    + Prime Supplier of Residual Oil (?)
 - Fossil Fuel Usage and Renewable Energy Production:
-    12. Total Coal Consumption
-    13. Total Natural Gas Consumption
-    14. Hydroelectricity Capacity Potential
-    15. Hydroelectricity Generation Potential
-    16. Electricity Generated from Biomass
-    17. Electricity Generated from Geothermal
-    18. Electricity Generated from Hydroelectricity
-    19. Electricity Generated from Natural Gas
-    20. Electricity Generated from Other Renewable Sources
-    21. Electricity Generated from Other Gases
-    22. Electricity Generated from Petroleum
-    23. Electricity Generated from Pump Storage
-    24. Electricity Generated from Solar
-    25. Electricity Generated from Wind
-    26. Electricity Generated from Wood
-    27. Percentage of Renewable Energy (Derived)
+    + Total Coal Consumption
+    + Total Natural Gas Consumption
+    + Hydroelectricity Capacity Potential
+    + Hydroelectricity Generation Potential
+    + Electricity Generated from Biomass
+    + Electricity Generated from Geothermal
+    + Electricity Generated from Hydroelectricity
+    + Electricity Generated from Natural Gas
+    + Electricity Generated from Other Renewable Sources
+    + Electricity Generated from Other Gases
+    + Electricity Generated from Petroleum
+    + Electricity Generated from Pump Storage
+    + Electricity Generated from Solar
+    + Electricity Generated from Wind
+    + Electricity Generated from Wood
+    + Percentage of Renewable Energy (Derived)
 
 The collected data is organized in the following format:
 
 | State | Year | feature_1 | feature_2 | ... | feature_n |
-|-------|------|-----------|-----------|-----|-----------|
+| ----- | ---- | --------- | --------- | --- | --------- |
+| AK    | 1998 | ...       | ...       | ... | ...       |
 
 
 # [Unsupervised Learning](./unsupervised.md)
