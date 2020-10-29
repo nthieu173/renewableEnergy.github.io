@@ -3,6 +3,9 @@ from sklearn.preprocessing import StandardScaler
 from matplotlib import pyplot as plt
 from collections import Counter
 import pandas
+import os
+
+print(os.getcwd())
 
 consolidated_data = pandas.read_csv('new_consolidated_data.csv', delimiter=',')
 

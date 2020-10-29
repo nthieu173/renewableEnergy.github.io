@@ -23,6 +23,5 @@ n = len(renew_percent)
 color_percent = np.vstack((np.zeros(n),renew_percent.to_numpy(),np.zeros(n))).T
 row_color = np.apply_along_axis(colors.to_hex, 1, color_percent)
 
-
 ax.scatter(reduced[:,0],reduced[:,1],reduced[:,2],c=row_color)
 plt.show()
