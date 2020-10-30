@@ -2,7 +2,7 @@ from scipy.cluster.vq import kmeans, whiten
 from numpy import genfromtxt, zeros
 from matplotlib import pyplot as plt
 
-consolidated_data = genfromtxt('new_consolidated_data.csv', delimiter=',',skip_header=1)
+consolidated_data = genfromtxt('../new_consolidated_data.csv', delimiter=',',skip_header=1)
 
 features = consolidated_data[:,2:-13]
 
@@ -18,4 +18,5 @@ fig, ax = plt.subplots()
 plt.plot(range(1,51), k_distortion)
 plt.xlabel("Number of clusters")
 plt.ylabel("Distortion")
+plt.savefig("output/states_all_year_elbow.svg")
 plt.show()
