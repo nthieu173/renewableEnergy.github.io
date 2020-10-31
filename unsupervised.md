@@ -70,6 +70,9 @@ Getting the result of k-means with 15 clusters and then counting the number of t
     + 2 times: WV, WI, IL, IN, OH
     + 1 time: MO, KY,
 
+The above data can be represented in tabular form with the columns as the clusters and rows as the states:
+
+![KMeans cluster table](./images/kmeans_cluster_table.png)
 
 # Principal Component Analysis (PCA)
 
