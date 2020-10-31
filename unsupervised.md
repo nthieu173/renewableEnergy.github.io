@@ -1,87 +1,57 @@
 # K-means clustering
+## Latest data (2016)
+Running preliminary k-means on the most recent data we have (2016) and analysing the distortion, we get the result:
 
-Running preliminary k-means on the dataset and analysing the distortion, we get the result:
+![k-means distortion versus cluster number](./images/kmeans/states_latest_year_elbow.svg)
 
-![k-means distortion versus cluster number](./images/kmeans_elbow.png)
+From this graph, we pick k = 15 to cluster the data of the states in 2016 without renewable energy production. We plot the clusters together with the states' renewable energy percentage. States which are in the same cluster have the same color.
 
-This graph is fairly smooth which means that there is probably no hard clusters which we can assign the states to. However, we can still pick k = 15 as a good cluster number.
+![k-means clustering of states in 2016 with their renewable energy percentage](./images/kmeans/latest_year_clustering.svg)
 
-K-means was performed with each point representing a particular state in a particular year (i.e. data for AL in 1998), which corresponds to 19 (years) x 50 (states) = 950 distinct points.
+We can draw some observations from this graph:
+- While there are definite clusters which have similar renewable energy percentage, most clusters have very large variance
+in its renewable energy percentage.
+- Oregon and Washington are similar both geographically and in their renewable energy percentage.
+- Alaska, Hawaii, New Mexico, California and Texas are uniquely in their own clusters.
+- New York and New Jersey are in their own cluster.
 
-In doing so, we want to see if states with similar percentages of renewable energy adoption are actually similar and if the data of states for different years are similar across the years.
+The variance of renewable energy percentage within some clusters are encouraging because it implies that similar states can have wildly different renewable energy percentage which can be attributed to different policy or development.
 
-Getting the result of k-means with 15 clusters and then counting the number of times a state appears in a cluster, we have the result:
+## All years (1998-2016)
+Running preliminary k-means on the entire range of data we have (1998-2016) and analysing the distortion, we get the result:
 
-- Cluster 1: 19 times : TX
-- Cluster 2: 19 times: AK
-- Cluster 3: 19 times: CA
-- Cluster 4: 19 times: NM
-- Cluster 5: 19 times: NY
-- Cluster 6:
-    + 19 times: FL
-    + 4 times: LA
-- Cluster 7:
-    + 12 times: HI
-    + 1 time: OH
-- Cluster 8:
-    + 19 times: AZ, NV
-    + 18 times: UT
-- Cluster 9:
-    + 19 times: OR, WA
-    + 18 times: ID 
-- Cluster 10:
-    + 19 times: MT, WY, CO
-    + 1 time: ID
-- Cluster 11:
-    + 16 times: IL, IN, PA, OH
-    + 14 times: MO
-    + 12 times: MI
-    + 4 times: WV, 
-- Cluster 12:
-    + 19 times: ME, VT, NH
-    + 6 times: CT
-    + 5 times: MI
-    + 4 times: WV
-    + 3 times: WI, MA
-    + 2 times: RI
-    + 1 time: MN, 
-- Cluster 13:
-    + 19 times: GA, MS, TN, NC, SC, AR, AL
-    + 18 times: KY
-    + 15 times: LA
-    + 11 times: VA
-    + 9 times: WV
-    + 2 times: MO, OK
-- Cluster 14:
-    + 19 times: IA, NE, SD, KS, ND
-    + 18 times: MN
-    + 17 times: OK
-    + 14 times: WI
-    + 2 times: MI, MO
-    + 1 time: IL, IN, UT
-- Cluster 15:
-    + 19 times: MD, DE, NJ
-    + 17 times: RI
-    + 16 times: MA
-    + 13 times: CT
-    + 8 times: VA
-    + 7 times: HI
-    + 3 times: PA
-    + 2 times: WV, WI, IL, IN, OH
-    + 1 time: MO, KY,
+![k-means distortion versus cluster number](./images/kmeans/states_all_years_elbow.svg)
 
-The above data can be represented in tabular form with the columns as the clusters and rows as the states:
+We also pick k = 15 to cluster the data which is similar to the clustering we've done on just 2016. This makes sense because the nature of the data hasn't changed, we've just included a wider range of it. However, because of the inclusion of multiple years of the same state, we can no longer represent the clustering as simply as we did for just 2016.
+
+The clustering represented in tabular form with the columns as the clusters and rows as the states:
 
 ![KMeans cluster table](./images/kmeans_cluster_table.png)
+
+This visualization shows us the raw clustering and the spread of the states between clusters. For a deeper analysis and easier viewing, we convert it to this graph representation:
+
+![k-means clustering of states from 1998-2016](./images/kmeans/all_years_clustering.svg)
+
+States which are always clustered together for all 19 years are put in the same node, with the color of the node representing the mean renewable energy percentage within that cluster. For states which had different years clustered to multiple different clusters, we use the edges' weights to represent how often the state is assigned to that cluster.
+
+We observe the following things:
+- A lot of clusterings are simply softer versions of the latest years clustering. For example:
+    + Arkansas, Alabama, Georgia, Mississippi, North Carolina, South Calorina, Tennessee are in the same cluster.
+    + Alaska, Hawaii, New Mexico, California and Texas are still in their own clusters
+    + Oregon and Washington are still isolated in their own cluster.
+- However, the softer clustering is encouraging for renewable energy development. The fact that states which are predominantly clustered with low renewable percentage states are also sometimes clustered with high renewable percentage states means that in some years the features of that state where closer to that of high renewable percentage states.
+
+This clustering gives us justification that it is possible to transition a state (change it's features) to achieve a higher renewable energy percentage.
+>>>>>>> f945321... Update Kmeans. New clustering graphics.
 
 # Principal Component Analysis (PCA)
 
 We performed PCA on our data to reduce the number of dimensions of the dataset. The number of components selected is based on the MLE of the data, and the results are as follows:
 
-![pca recovered variance](./images/recovered_variance.png)
+![pca recovered variance](./images/pca/recovered_variance.svg)
 
 We were successful in reducing the dimension of our dataset, to 12. We will be running both K-means clustering and GMM utlizing the PCA components and comparing it with the results for K-means and GMM utilizing the raw dataset. Worth noting is the idea that proper scaling is extremely important for our dataset, as we are taking into account features that commonly that differ by many orders of magnitude. As an example, one feature is measured in hundreds of millions of dollars, while another is a percentage value ranging from 0 to 100. Scaling each feature beforehand is crucial to the PCA having any meaning. Next, we will look at what features are represented in the PCA components to see if any stand out:
 
-![pca vectors](./images/PCA_vectors_magnitude.png)
+![pca vectors](./images/pca/PCA_vectors_magnitude.png)
 
 As can be seen, there is a fairly decent spread of feature magnitudes among the first few components given by PCA. Each feature we have chosen probably contributes a good amount of information to our dataset. We plan to analyze the covariance matrix for correlations between features as well.
