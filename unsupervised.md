@@ -49,7 +49,7 @@ This clustering gives us justification that it is possible to transition a state
 
 We performed PCA on our data to reduce the number of dimensions of the dataset. The number of components selected is based on the MLE of the data, and the results are as follows:
 
-![pca recovered variance](./images/pca/recovered_variance.svg)
+![pca recovered variance](./images/pca/pca_recovered_variance_step.svg)
 
 We were successful in reducing the dimension of our dataset, to 12. We will be running both K-means clustering and GMM utlizing the PCA components and comparing it with the results for K-means and GMM utilizing the raw dataset. Worth noting is the idea that proper scaling is extremely important for our dataset, as we are taking into account features that commonly that differ by many orders of magnitude. As an example, one feature is measured in hundreds of millions of dollars, while another is a percentage value ranging from 0 to 100. Scaling each feature beforehand is crucial to the PCA having any meaning. Next, we will look at what features are represented in the PCA components to see if any stand out:
 
