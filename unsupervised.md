@@ -26,7 +26,7 @@ We also pick k = 15 to cluster the data which is similar to the clustering we've
 
 The clustering represented in tabular form with the columns as the clusters and rows as the states:
 
-![KMeans cluster table](./images/kmeans_cluster_table.png)
+![KMeans cluster table](./images/kmeans/kmeans_cluster_table.jpg)
 
 This visualization shows us the raw clustering and the spread of the states between clusters. For a deeper analysis and easier viewing, we convert it to this graph representation:
 
@@ -42,9 +42,10 @@ We observe the following things:
 - However, the softer clustering is encouraging for renewable energy development. The fact that states which are predominantly clustered with low renewable percentage states are also sometimes clustered with high renewable percentage states means that in some years the features of that state where closer to that of high renewable percentage states.
 
 This clustering gives us justification that it is possible to transition a state (change it's features) to achieve a higher renewable energy percentage.
->>>>>>> f945321... Update Kmeans. New clustering graphics.
 
 # Principal Component Analysis (PCA)
+
+{% include interactive/pca.html %}
 
 We performed PCA on our data to reduce the number of dimensions of the dataset. The number of components selected is based on the MLE of the data, and the results are as follows:
 
