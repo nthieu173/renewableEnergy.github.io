@@ -45,7 +45,7 @@ This clustering gives us justification that it is possible to transition a state
 
 # Principal Component Analysis (PCA)
 
-{% include interactive/pca.html %}
+{% include pca.html %}
 
 We performed PCA on our data to reduce the number of dimensions of the dataset. The number of components selected is based on the MLE of the data, and the results are as follows:
 
