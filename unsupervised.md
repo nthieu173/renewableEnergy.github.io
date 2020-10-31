@@ -83,3 +83,5 @@ We performed PCA on our data to reduce the number of dimensions of the dataset. 
 We were successful in reducing the dimension of our dataset, to 12. We will be running both K-means clustering and GMM utlizing the PCA components and comparing it with the results for K-means and GMM utilizing the raw dataset. Worth noting is the idea that proper scaling is extremely important for our dataset, as we are taking into account features that commonly that differ by many orders of magnitude. As an example, one feature is measured in hundreds of millions of dollars, while another is a percentage value ranging from 0 to 100. Scaling each feature beforehand is crucial to the PCA having any meaning. Next, we will look at what features are represented in the PCA components to see if any stand out:
 
 ![pca vectors](./images/PCA_vectors_magnitude.png)
+
+As can be seen, there is a fairly decent spread of feature magnitudes among the first few components given by PCA. Each feature we have chosen probably contributes a good amount of information to our dataset. We plan to analyze the covariance matrix for correlations between features as well.
