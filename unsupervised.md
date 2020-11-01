@@ -20,7 +20,7 @@ The variance of renewable energy percentage within some clusters are encouraging
 ## All years (1998-2016)
 Running preliminary k-means on the entire range of data we have (1998-2016) and analysing the distortion, we get the result:
 
-![k-means distortion versus cluster number](./images/kmeans/states_all_years_elbow.svg)
+![k-means distortion versus cluster number](./images/kmeans/states_all_year_elbow.svg)
 
 We also pick k = 15 to cluster the data which is similar to the clustering we've done on just 2016. This makes sense because the nature of the data hasn't changed, we've just included a wider range of it. However, because of the inclusion of multiple years of the same state, we can no longer represent the clustering as simply as we did for just 2016.
 
