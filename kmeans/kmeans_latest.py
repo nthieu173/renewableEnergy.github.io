@@ -31,8 +31,8 @@ def clustering(data_file):
     listed_states = [item for l in label_states for item in l]
 
     label_color = []
-    distinct_colors = ["#2f4f4f", "#00fa9a", "#a0522d", "#ffff00","#006400", "#ff69b4", "#4b0082",
-        "#ff0000", "#00ced1", "#ffa500", "#00ff00", "#0000ff", "#ff00ff", "#1e90ff", "#eee8aa"]
+    distinct_colors = ["#2f4f4f", "#00fa9a", "#a0522d", "#FFDF00","#006400", "#ff69b4", "#4b0082",
+        "#ff0000", "#00ced1", "#ffa500", "#00ff00", "#0000ff", "#ff00ff", "#1e90ff", "#D2691E"]
     for (i,states) in enumerate(label_states):
         for s in states:
             label_color += [distinct_colors[i]]
