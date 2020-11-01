@@ -14,9 +14,8 @@ from matplotlib import colors
 class Unsupervised_Learning():
     def __init__(self, data_file='new_consolidated_data.csv', ncomp=0, nclusters=0, plot=True):
         self.df = pd.read_csv(data_file, sep=',', header=0)
-        del self.df['State']
-        del self.df['Year']
         self.data = self.df.iloc[:,2:-13]
+        print(self.data.shape)
         self.renew_percent = self.df.iloc[:,-1] / 100
         self.scaled_data = sklearn.preprocessing.scale(self.data)
         self.ncomp = ncomp
