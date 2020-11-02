@@ -43,6 +43,27 @@ We observe the following things:
 
 This clustering gives us justification that it is possible to transition a state (change it's features) to achieve a higher renewable energy percentage.
 
+# Gaussian Mixture Model (GMM)
+
+Our implementation of GMM allowed us to compare differences between it and the earlier Kmeans clustering:
+
+![GMM clustering of states from 1998-2016](./images/gmm/gmmclustering.png)
+
+From this image of the clusters, we can see some unexpected results. Compared to the Kmeans result:
+- A lot of the clusterings kept the same core of states:
+    + States with high percentage of renewable energy like OR/WA or VT/ME/NH
+    + Several of the individual states were added to the existing clusters
+- The notable individual states also kept their independence like CA/TX/AK.
+- However, many of the states with little correlation like FL and NY were somehow clusetered together.
+
+We can tell that the results were not very optimal, and the GMM implementation seems to be less promising compared to the Kmeans results.
+
+From here, we can also look at the AIC (Akaike information criterion) vs the BIC (Bayesian information criterion) scores that tell us what number of components is optimal.
+
+![AIC vs BIC](./images/gmm/AICBIC.png)
+
+As we can see from the graphing, the scores both hit a minimum around n_components = 31, which is way more components than the 15 we used for clustering. This difference in expectations may result in the relatively poor clustering that we got from GMM. 
+
 # Principal Component Analysis (PCA)
 
 {% include pca.html %}
