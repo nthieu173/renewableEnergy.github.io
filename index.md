@@ -10,7 +10,7 @@ We will answer these holistic questions by using machine learning techniques per
 
 The full proposal can be read [here](./proposal.md).
 
-# Data
+# [Data](./data.md)
 
 Since we are interested in the adoption of renewable energy by states over time, we collected the following data from 1998 - 2016:
 - Geographical:
@@ -44,14 +44,7 @@ Since we are interested in the adoption of renewable energy by states over time,
     + Electricity Generated from Wood
     + Percentage of Renewable Energy (Derived)
 
-The collected data is organized in the following format:
-
-| State | Year | feature_1 | feature_2 | ... | feature_n |
-| ----- | ---- | --------- | --------- | --- | --------- |
-| AK    | 1998 | ...       | ...       | ... | ...       |
-| ...   | ...  | ...       | ...       | ... | ...       |
-
-It is important to note that the first fifteen features are the features that we think have an impact on the level of renewable energy production, while the remaining features are ground truth labels giving us information on the actual levels of renewable energy production. Hence, we have omitted the ground truth labels in our unsupervised learning portion of our project because we want to identify features that can affect renewable energy production without relying on the actual levels included in the set of features.
+Information about data collection and preproccessing can be found [here](./data.md).
 
 # [Unsupervised Learning](./unsupervised.md)
 

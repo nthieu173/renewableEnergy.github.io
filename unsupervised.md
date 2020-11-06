@@ -1,5 +1,11 @@
-# K-means clustering
-## Latest data (2016)
+# Unsupervised learning
+Using unsupervised learning, we aim to answer the questions:
+- Are states with similar (absolute and/or relative) renewable energy production similar in other features?
+- Which features most strongly impact renewable energy production in states?
+- Are states with low renewable energy production less green because they are fettered by geographical limitations?
+
+## K-means clustering
+### Latest data (2016)
 Running preliminary k-means on the most data of the most recent year that we have (2016) and analysing the distortion, we get the result:
 
 ![k-means distortion versus cluster number](./images/kmeans/states_latest_year_elbow.svg)
@@ -17,7 +23,7 @@ in its renewable energy percentage.
 
 The variance of renewable energy percentage within some clusters are encouraging because it implies that similar states can have wide-ranging renewable energy percentage. Thus, we can infer that this difference can be attributed to different policies pertaining to the energy industry or some other factors that are unrelated to the geographical factors that we have included in our dataset.
 
-## All years (1998-2016)
+### All years (1998-2016)
 Running preliminary k-means on the entire range of data we have (1998-2016) and analysing the distortion, we get the result:
 
 ![k-means distortion versus cluster number](./images/kmeans/states_all_year_elbow.svg)
@@ -43,7 +49,7 @@ We observe the following:
 
 This clustering gives us justification that it is possible to transition a state (change it's non-geographical features) to achieve a higher renewable energy production.
 
-# Gaussian Mixture Model (GMM)
+## Gaussian Mixture Model (GMM)
 
 Our implementation of GMM allowed us to compare if softer clustering works better than Kmeans:
 
@@ -64,7 +70,7 @@ From here, we can also look at the AIC (Akaike information criterion) vs the BIC
 
 As we can see from the graphing, the scores both hit a minimum around n_components = 31, which is way more components than the 15 we used for clustering. This difference in expectations may result in the relatively poor clustering that we got from GMM. 
 
-# Principal Component Analysis (PCA)
+## Principal Component Analysis (PCA)
 
 After centering and scaling our data, we performed PCA to try to reduce the number of dimensions of our dataset as we wanted to see if there were any features that can be excluded. The number of components selected is based on the MLE of the transformation, and the results are as follows:
 
