@@ -18,6 +18,7 @@ Since we are interested in the adoption of renewable energy by states over time,
     + Total Natural Gas Consumption
     + Hydroelectricity Capacity Potential
     + Hydroelectricity Generation Potential
+    + Electricity Generated from Coal
     + Electricity Generated from Biomass
     + Electricity Generated from Geothermal
     + Electricity Generated from Hydroelectricity
