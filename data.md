@@ -8,9 +8,9 @@ Since we are interested in the adoption of renewable energy by states over time,
     + Average Annual Windspeed
     + Total State Area
 - Economic:
-    + Annual Gross Domestic Product (GDP)
+    + Annual Gross Domestic Product (GDP) in units of millions of $USD.
     + Annual Revenue of Electricity Providers
-    + Annual Subsidies (?)
+    + Annual Subsidies towards energy providers and products, in units of millions of $USD.
     + Average Electricity Price
     + Prime Supplier of Residual Oil (?)
 - Fossil Fuel Usage and Renewable Energy Production:
