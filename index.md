@@ -21,11 +21,11 @@ Since we are interested in the adoption of renewable energy by states over time,
     + Average Annual Windspeed
     + Total State Area
 - Economic:
-    + Annual Gross Domestic Product (GDP)
+    + Annual Gross Domestic Product (GDP) in units of millions of $USD.
     + Annual Revenue of Electricity Providers
-    + Annual Subsidies (?)
+    + Annual Subsidies towards energy providers and products, in units of millions of $USD.
     + Average Electricity Price
-    + Prime Supplier of Residual Oil (?)
+    + Prime Supplier of Residual Oil: the supply for heavier oil and is the primary fuel for oil power plants.
 - Fossil Fuel Usage and Renewable Energy Production:
     + Total Coal Consumption
     + Total Natural Gas Consumption
