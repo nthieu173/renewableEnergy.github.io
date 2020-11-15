@@ -14,7 +14,7 @@ states_names = ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA",
 
 # THERE IS NO WEATHER DATA FOR DC
 
-year_range = range(1998, 2017)
+year_range = range(1998, 2020)
 
 class StateData:
     def __init__(self):
