@@ -93,10 +93,12 @@ class Data():
     def add_producer_price_index_data(self):
         with open("producer_price_index/us_yearly_producer_price_index.csv") as file:
             csv_reader = csv.DictReader(file)
+            data = {}
             for row in csv_reader:
-                for year in range(self.year_from, self.year_to + 1):
-                    self.data.loc[(self.data.index.get_level_values(1)==str(year)), "producer_price_index"] \
-                        = row["Value"]
+                data[int(row["Year"])] = row["Value"]
+            for year in range(self.year_from, self.year_to + 1):
+                self.data.loc[(self.data.index.get_level_values(1)==str(year)), "producer_price_index"] \
+                    = data[year]
         return
 
     def add_state_area_data(self):
