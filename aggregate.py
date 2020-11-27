@@ -90,6 +90,15 @@ class Data():
                         = int(row["PotentialGenerationGWHYR"])
         return
 
+    def add_producer_price_index_data(self):
+        with open("producer_price_index/us_yearly_producer_price_index.csv") as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                for year in range(self.year_from, self.year_to + 1):
+                    self.data.loc[(self.data.index.get_level_values(1)==str(year)), "producer_price_index"] \
+                        = row["Value"]
+        return
+
     def add_state_area_data(self):
         with open("state_geography/total_state_area.csv") as file:
             csv_reader = csv.DictReader(file)
@@ -100,7 +109,6 @@ class Data():
                                   (self.data.index.get_level_values(1) == str(year)), "total_state_area"] \
                         = float(row["Total Area (Sq. Mi.)"].replace(',', ''))
         return
-
 
     def calculate_renew_pc(self):
         self.total_gen = self.gen_data.sum(axis=1) + 1e-32
@@ -114,6 +122,7 @@ class Data():
         self.mass_add_data()
         self.add_hydropower_potential_data()
         self.add_state_area_data()
+        self.add_producer_price_index_data()
 
         self.calculate_renew_pc()
 
