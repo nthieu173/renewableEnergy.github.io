@@ -140,5 +140,6 @@ class Data():
 
 
 if __name__ == "__main__":
-    a = Data(1998, 2016, 'new_consolidated_data.csv')()
+    a = Data(1998, 2016, 'new_consolidated_data_1998_to_2016.csv')()
+    b = Data(2017, 2019, 'new_consolidated_data_2017_to_2019.csv')()
     print(a.shape)
