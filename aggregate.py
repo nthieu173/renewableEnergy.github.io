@@ -142,4 +142,9 @@ class Data():
 if __name__ == "__main__":
     a = Data(1998, 2016, 'new_consolidated_data_1998_to_2016.csv')()
     b = Data(2017, 2019, 'new_consolidated_data_2017_to_2019.csv')()
-    print(a.shape)
+
+    s_a = a.sample(frac=1)
+    s_b = b.sample(frac=1)
+    
+    s_a.to_csv('shuffled_consolidated_data_1998_to_2016.csv')
+    s_b.to_csv('shuffled_consolidated_data_2017_to_2019.csv')
