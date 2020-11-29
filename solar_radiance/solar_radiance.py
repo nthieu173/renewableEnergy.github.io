@@ -75,9 +75,13 @@ def main(save_file):
     for average_dni in yearly_average_dni_list:
         for name in average_dni:
             states_yearly_dni[name] += [average_dni[name]]
+    # Extending data
+    num_extended = 3
+    for name in states_yearly_dni:
+        states_yearly_dni[name] += [states_yearly_dni[name][-1]]*num_extended
     with open(save_file, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["State"]+[i for i in range(1998, 2017)])
+        csvwriter.writerow(["State"]+[i for i in range(1998, 2017+num_extended)])
         for name in states_yearly_dni:
             csvwriter.writerow([name]+states_yearly_dni[name])
     print("Written average radiance data to {}".format(save_file))
