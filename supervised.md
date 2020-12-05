@@ -13,6 +13,12 @@ Our final model consists of sixteen hidden layers with 128 nodes each.
 ### Splitting dataset for training and validation
 ### Loss
 
-## Error Analysis 
+## Error Analysis
+
+![Prediction error for each year](./images/supervised/year_error_visualization.svg)
+
+![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_error_visualization.svg)
+
+![Prediction error for all US States](./images/supervised/state_error_visualization.svg)
 
 ## Prediction

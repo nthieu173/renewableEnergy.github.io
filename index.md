@@ -60,3 +60,9 @@ To answer these questions, we will use:
 - Gaussian Mixture Modelling (GMM)
 
 Our results along with the full report can be read [here](./unsupervised.md).
+
+# [Supervised Learning](./supervised.md)
+
+A key question that we asked ourselves is: are we able to predict the price of electricity in a state accurately using the dataset that we had. Using supervised learning, we aim to create a machine learning model that predicts the price of electricity in a state based off the features that we collected earlier. To guage the accuracy of our model, we calculated the mean squared error for the predictions of our model on the unseen data from 2017 to 2019. 
+
+Our results along with the full report can be read [here](./supervised.md).
