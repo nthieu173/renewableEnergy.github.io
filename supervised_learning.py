@@ -28,28 +28,42 @@ def main(train_data_path, val_data_path, viz_data_path, save_path, resume=False,
     model = load_model(save_path)
 
     viz_data = pd.read_csv(viz_data_path)
-    visualize_prediction(model, viz_data)
+    v_x, v_y = preprocess_data(viz_data)
+    predictions = pd.DataFrame(model.predict(v_x))
+    viz_data['prediction'] = predictions
+    visualize_state_error(model, viz_data)
+    visualize_year_error(model, viz_data)
 
 def train_save(model, x, y, val_x, val_y, save_path):
     model, train_loss, val_loss = train(model, x, y, val_x, val_y, save_path, \
                                         bs=25, epochs=2000)
     plot_loss(train_loss, val_loss)
 
-def visualize_prediction(model, data):
-    x, y = preprocess_data(data)
-    predictions = pd.DataFrame(model.predict(x))
-    data['prediction'] = predictions
+def visualize_state_error(model, data):
     states = pd.unique(data['State'])
-    fig, axs = plt.subplots(10,5,figsize=(15,45))
+    fig, axs = plt.subplots(10,5,figsize=(20,40))
     for state, ax in zip(states, axs.flat):
         state_data = data[data['State'] ==  state]
         error = np.abs(state_data['average_electricity_price'] - state_data['prediction'])
         rel_error = error / state_data['average_electricity_price']
         ax.set_title(state)
         ax.plot(state_data['Year'], rel_error)
-    fig.savefig('error_visualization.svg', bbox_inches="tight")
-    fig.savefig('error_visualization.png', bbox_inches="tight")
+    fig.savefig('state_error_visualization.svg', bbox_inches="tight")
+    fig.savefig('state_error_visualization.png', bbox_inches="tight")
 
+def visualize_year_error(model, data):
+    years = sorted(pd.unique(data['Year']))
+    num_states = len(pd.unique(data['State']))
+    cumulative_year_error = []
+    for year in years:
+        year_data = data[data['Year'] == year]
+        error = np.abs(year_data['average_electricity_price'] - year_data['prediction'])
+        rel_error = error / year_data['average_electricity_price']
+        cumulative_year_error += [rel_error.sum() / num_states]
+    fig = plt.figure()
+    plt.plot(years, cumulative_year_error)
+    fig.savefig('year_error_visualization.svg', bbox_inches="tight")
+    fig.savefig('year_error_visualization.png', bbox_inches="tight")
 
 def drop_output_col(data):
     return data[data.columns.drop(['State','Year','average_electricity_price'])]
