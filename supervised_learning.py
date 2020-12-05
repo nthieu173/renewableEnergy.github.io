@@ -12,6 +12,8 @@ from keras.models import load_model
 
 from sklearn.preprocessing import StandardScaler
 
+import scipy.stats
+
 def main(train_data_path, val_data_path, viz_data_path, save_path, resume=False, train=False):
     train_data = pd.read_csv(train_data_path)
     val_data = pd.read_csv(val_data_path)
@@ -33,6 +35,7 @@ def main(train_data_path, val_data_path, viz_data_path, save_path, resume=False,
     viz_data['prediction'] = predictions
     visualize_state_error(model, viz_data)
     visualize_year_error(model, viz_data)
+    confidence_interval(model, viz_data)
 
 def train_save(model, x, y, val_x, val_y, save_path):
     model, train_loss, val_loss = train(model, x, y, val_x, val_y, save_path, \
@@ -40,11 +43,10 @@ def train_save(model, x, y, val_x, val_y, save_path):
     plot_loss(train_loss, val_loss)
 
 def visualize_state_error(model, data):
-    states = pd.unique(data['State'])
     fig, axs = plt.subplots(10,5,figsize=(20,40))
-    for state, ax in zip(states, axs.flat):
+    for state, ax in zip(pd.unique(data['State']), axs.flat):
         state_data = data[data['State'] ==  state]
-        error = np.abs(state_data['average_electricity_price'] - state_data['prediction'])
+        error = state_data['average_electricity_price'] - state_data['prediction']
         rel_error = error / state_data['average_electricity_price']
         ax.set_title(state)
         ax.plot(state_data['Year'], rel_error)
@@ -64,6 +66,30 @@ def visualize_year_error(model, data):
     plt.plot(years, cumulative_year_error)
     fig.savefig('year_error_visualization.svg', bbox_inches="tight")
     fig.savefig('year_error_visualization.png', bbox_inches="tight")
+
+def confidence_interval(model, data, alpha = 0.05):
+    states = pd.unique(data['State'])
+    mean_state_error = np.zeros(len(states))
+    c_intervals = np.zeros(len(states))
+    for i, state in enumerate(states):
+        state_data = data[data['State'] ==  state]
+        error = state_data['average_electricity_price'] - state_data['prediction']
+        n = len(state_data)
+        t_alpha_2 = scipy.stats.t.isf(alpha/2, n-1) # t_{alpha/2}
+        mean = error.mean()
+        variance = np.square(error - mean).sum() / (n - 1)
+        confidence = t_alpha_2*np.sqrt(variance/n)
+        mean_state_error[i] = mean
+        c_intervals[i] = confidence
+    fig = plt.figure(figsize=(16,4))
+    sorted_arg = np.argsort(mean_state_error)
+    states = states[sorted_arg]
+    c_intervals = c_intervals[sorted_arg]
+    mean_state_error = mean_state_error[sorted_arg]
+    plt.errorbar(states, mean_state_error, yerr=c_intervals, ecolor="orange")
+    fig.savefig('state_confidence_error_visualization.svg', bbox_inches="tight")
+    fig.savefig('state_confidence_error_visualization.png', bbox_inches="tight")
+
 
 def drop_output_col(data):
     return data[data.columns.drop(['State','Year','average_electricity_price'])]
