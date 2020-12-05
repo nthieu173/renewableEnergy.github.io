@@ -140,11 +140,12 @@ class Data():
 
 
 if __name__ == "__main__":
-    a = Data(1998, 2016, 'new_consolidated_data_1998_to_2016.csv')()
-    b = Data(2017, 2019, 'new_consolidated_data_2017_to_2019.csv')()
+    true_data = Data(1998, 2016, 'consolidated_data_1998_to_2016.csv')()
+    extrapolated_data = Data(2017, 2019, 'consolidated_data_2017_to_2019.csv')()
+    all_data = Data(1998, 2019, 'consolidated_data_1998_to_2019.csv')()
 
-    s_a = a.sample(frac=1)
-    s_b = b.sample(frac=1)
+    shuffled_true = true_data.sample(frac=1)
+    shuffled_extrapolated = extrapolated_data.sample(frac=1)
     
-    s_a.to_csv('shuffled_consolidated_data_1998_to_2016.csv')
-    s_b.to_csv('shuffled_consolidated_data_2017_to_2019.csv')
+    shuffled_true.to_csv('shuffled_consolidated_data_1998_to_2016.csv')
+    shuffled_extrapolated.to_csv('shuffled_consolidated_data_2017_to_2019.csv')
