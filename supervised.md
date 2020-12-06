@@ -14,14 +14,16 @@ Our final model consists of sixteen hidden layers with 128 nodes each.
 ### Loss
 
 ## Error Analysis
-
+Looking at the mean absolute error of our model's prediction in each year, we can see that our model does not perform significantly worse or significantly better in any of the year, with the mean mean error staying around 9%.
 ![Prediction error for each year](./images/supervised/year_error_visualization.svg)
 
+Looking at the mean absolute relative error for each state however, we can recognize some quirks of our model. It consistently predict an average electricity price higher than the ground truth, with the median error around 8%. Also plotted are the confidence interval of the predictions which denotes where 95% of the relative errors are located. We can see that for most of the states the error of our models are fairly similar except for Washington (WA), Wyoming (WY), Idiana (ID) and Kentucky (KY).
 ![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_error_visualization.svg)
 
+Plotted below are the relative error of our predictions for all US states for the years 1998-2019.
 ![Prediction error for all US States](./images/supervised/state_error_visualization.svg)
 
 ## Prediction
 Using the neural network we implemented, the goal was to predict accurate electricity prices given the other features. After training on the dataset from 1998-2016, we validated on 2017-2019 to and predicted prices for each state. Observing the results, we can tell that there are a lot of inaccuracies with our predicted prices compared to the given data. The mean squared error value we obtained shows that there is a decent deviation of prices compared to actual values, which indicates that our model has some trouble predicting. However, in the graph of all states below, we can see that our predictions follow the general upward trend of prices. 
 
-![Prediction vs Truth Values for all US States](./images/supervised/state_prediction_visualization.png)
+![Prediction vs Truth Values for all US States](./images/supervised/state_prediction_visualization.svg)
