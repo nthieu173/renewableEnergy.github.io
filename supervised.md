@@ -24,4 +24,4 @@ Our final model consists of sixteen hidden layers with 128 nodes each.
 ## Prediction
 Using the neural network we implemented, the goal was to predict accurate electricity prices given the other features. After training on the dataset from 1998-2016, we validated on 2017-2019 to and predicted prices for each state. Observing the results, we can tell that there are a lot of inaccuracies with our predicted prices compared to the given data. The mean squared error value we obtained shows that there is a decent deviation of prices compared to actual values, which indicates that our model has some trouble predicting. However, in the graph of all states below, we can see that our predictions follow the general upward trend of prices. 
 
-![Prediction vs Truth Values for all US States](./images/supervised/state_prediction_visualization.svg)
+![Prediction vs Truth Values for all US States](./images/supervised/state_prediction_visualization.png)
