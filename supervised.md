@@ -15,10 +15,13 @@ Our final model consists of sixteen hidden layers with 128 nodes each.
 
 ## Error Analysis
 
+Looking at the mean absolute error of our model's prediction in each year, we can see that our model does not perform significantly worse or significantly better in any of the year, with the mean mean error staying around 9%.
 ![Prediction error for each year](./images/supervised/year_error_visualization.svg)
 
+Looking at the mean error for each state however, we can recognize some quirks of our model. It consistently predict an average electricity price lower than the ground truth, with the median error around -0.6 c/kWh. Also plotted are the confidence interval of the predictions which denotes where 95% of the errors are located. We can see that for most of the states the error of our models are fairly similar except for Rhode Island (RI), Connecticut (CT), Massachusetts (MA) and Alaska(AK).
 ![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_error_visualization.svg)
 
+Plotted below are the relative error of our predictions for all US states for the years 1998-2019.
 ![Prediction error for all US States](./images/supervised/state_error_visualization.svg)
 
 ## Prediction
