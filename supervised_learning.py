@@ -50,20 +50,22 @@ def visualize_state_error(model, data):
         rel_error = error / state_data['average_electricity_price']
         ax.set_title(state)
         ax.plot(state_data['Year'], rel_error)
+        ax.axhline(y=np.mean(rel_error), color="r")
     fig.savefig('state_error_visualization.svg', bbox_inches="tight")
     fig.savefig('state_error_visualization.png', bbox_inches="tight")
 
 def visualize_year_error(model, data):
     years = sorted(pd.unique(data['Year']))
     num_states = len(pd.unique(data['State']))
-    cumulative_year_error = []
+    mean_year_error = []
     for year in years:
         year_data = data[data['Year'] == year]
         error = np.abs(year_data['average_electricity_price'] - year_data['prediction'])
         rel_error = error / year_data['average_electricity_price']
-        cumulative_year_error += [rel_error.sum() / num_states]
+        mean_year_error += [rel_error.sum() / num_states]
     fig = plt.figure()
-    plt.plot(years, cumulative_year_error)
+    plt.plot(years, mean_year_error)
+    plt.axhline(y=np.mean(mean_year_error), color="r")
     fig.savefig('year_error_visualization.svg', bbox_inches="tight")
     fig.savefig('year_error_visualization.png', bbox_inches="tight")
 
