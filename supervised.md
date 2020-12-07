@@ -6,7 +6,7 @@ We chose to implement a deep neural network to perform our prediction task. Deci
 
 Subsequently, we experimented with the design of our model architecture by varying the number of hidden layers and the number of nodes in each layer using K-Folds cross validation. A fifth of the dataset was used as the validation set and the validation loss of the model was computed after training for 200 epochs. This was repeated with the rest of the dataset with re-initialized weights until each model has been validated with all five folds of the K-Folds split and the other hyperparameters held constant. The average validation loss was then computed and used to compare to that of our other models. The results led us to select our finalized model architecture for subsequent training and fine-tuning of the other hyperparameters. 
 
-Our final model consists of sixteen hidden layers with 128 nodes each. 
+Our final model consists of sixteen hidden layers with 128 nodes each with LeakyRELU as our activation function on all layers except for the final one. 
 
 ## Training Process
 ### Hyperparameter Tuning
