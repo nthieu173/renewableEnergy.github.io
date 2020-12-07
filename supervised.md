@@ -16,8 +16,12 @@ We experimented with a variety of activation functions, number of hidden layers,
 
 ![Ensemble](./images/model2_h.png)
 
+In the end, we went with a fairly deep and thin network because our number of features where fairly low (~20) and 
+
 ### Splitting dataset for training and validation
-We use our dataset from the year 1998-2016 as our training set and our dataset from the year 2017-2019 as our validation set. The 1998-2016 dataset was the most accurate since it had no interpolated data while the 2017-2019 was not as accurate since it had interpolated Direct Normal Irradiance data. We simply took the DNI for the year 2016 and repeated it for the year 2017-2019. This probably resulted in a lower DNI than reality because there seems to be an upward trend of DNI growth over the years.
+Our final model was trained differently from the models being used for hyperparameter tuning. Instead of using a portion of 1998-2016 dataset as the validation set, we used the dataset from the year 2017-2019 as the validation set and used the entire dataset in 1998-2016 for our training set.
+
+The 1998-2016 dataset was the most accurate since it had no interpolated data while the 2017-2019 was not as accurate since it had interpolated Direct Normal Irradiance data. We simply took the DNI for the year 2016 and repeated it for the year 2017-2019. This probably resulted in a lower DNI than reality because there seems to be an upward trend of DNI growth over the years.
 
 Our reason for splitting it this way is because we will always be training our model on past years to predict future years. By splitting it this way, we simulate what might happen when we use our model to predict the electricity price of the future.
 
