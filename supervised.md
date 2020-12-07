@@ -13,6 +13,8 @@ Our final model consists of sixteen hidden layers with 128 nodes each.
 ### Splitting dataset for training and validation
 ### Loss
 
+![Training and Validation loss over Epochs for our final model](./images/model_3.98.svg)
+
 ## Error Analysis
 Looking at the mean absolute error of our model's prediction in each year, we can see that our model does not perform significantly worse or significantly better in any of the year, with the mean mean error staying around 9%.
 ![Prediction error for each year](./images/supervised/year_error_visualization.svg)
