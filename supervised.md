@@ -39,7 +39,7 @@ Looking at the mean relative error for each state however, we can recognize some
 
 ![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_error_visualization.svg)
 
-Plotted next is the confidence interval of the predictions which denotes where 95% of the relative absolute errors are located. We can see that for most of the states the error of our models are fairly similar except for Washington (WA), Wyoming (WY), Idiana (ID) and Kentucky (KY).
+Plotted next is the confidence interval of the predictions which denotes where 95% of the relative absolute errors are located. We can see that for most of the states the error of our models are fairly similar except for Washington (WA), Wyoming (WY), Indiana (ID) and Kentucky (KY).
 
 ![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_abs_error_visualization.svg)
 
