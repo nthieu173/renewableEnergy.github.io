@@ -38,6 +38,7 @@ def main(train_data_path, val_data_path, viz_data_path, save_path, resume=False,
     visualize_state_error(model, viz_data)
     visualize_year_error(model, viz_data)
     confidence_interval(model, viz_data)
+    abs_confidence_interval(model, viz_data)
 
 def train_save(model, x, y, val_x, val_y, save_path):
     model, train_loss, val_loss = train(model, x, y, val_x, val_y, save_path, \
@@ -89,7 +90,7 @@ def confidence_interval(model, data, alpha = 0.05):
     c_intervals = np.zeros(len(states))
     for i, state in enumerate(states):
         state_data = data[data['State'] ==  state]
-        error = np.abs(state_data['prediction'] - state_data['average_electricity_price']) / state_data['average_electricity_price']
+        error = state_data['prediction'] - state_data['average_electricity_price'] / state_data['average_electricity_price']
         n = len(state_data)
         t_alpha_2 = scipy.stats.t.isf(alpha/2, n-1) # t_{alpha/2}
         mean = error.mean()
@@ -105,6 +106,29 @@ def confidence_interval(model, data, alpha = 0.05):
     plt.errorbar(states, mean_state_error, yerr=c_intervals, ecolor="orange")
     fig.savefig('state_confidence_error_visualization.svg', bbox_inches="tight")
     fig.savefig('state_confidence_error_visualization.png', bbox_inches="tight")
+
+def abs_confidence_interval(model, data, alpha = 0.05):
+    states = pd.unique(data['State'])
+    mean_state_error = np.zeros(len(states))
+    c_intervals = np.zeros(len(states))
+    for i, state in enumerate(states):
+        state_data = data[data['State'] ==  state]
+        error = np.abs(state_data['prediction'] - state_data['average_electricity_price']) / state_data['average_electricity_price']
+        n = len(state_data)
+        t_alpha_2 = scipy.stats.t.isf(alpha/2, n-1) # t_{alpha/2}
+        mean = error.mean()
+        variance = np.square(error - mean).sum() / (n - 1)
+        confidence = t_alpha_2*np.sqrt(variance/n)
+        mean_state_error[i] = mean
+        c_intervals[i] = confidence
+    fig = plt.figure(figsize=(16,4))
+    sorted_arg = np.argsort(mean_state_error)
+    states = states[sorted_arg]
+    c_intervals = c_intervals[sorted_arg]
+    mean_state_error = mean_state_error[sorted_arg]
+    plt.errorbar(states, mean_state_error, yerr=c_intervals, ecolor="orange")
+    fig.savefig('state_confidence_abs_error_visualization.svg', bbox_inches="tight")
+    fig.savefig('state_confidence_abs_error_visualization.png', bbox_inches="tight")
 
 def drop_output_col(data):
     return data[data.columns.drop(['State','Year','average_electricity_price'])]
