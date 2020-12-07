@@ -35,9 +35,13 @@ Looking at the mean absolute error of our model's prediction in each year, we ca
 
 ![Prediction error for each year](./images/supervised/year_error_visualization.svg)
 
-Looking at the mean absolute relative error for each state however, we can recognize some quirks of our model. It consistently predict an average electricity price higher than the ground truth, with the median error around 8%. Also plotted are the confidence interval of the predictions which denotes where 95% of the relative errors are located. We can see that for most of the states the error of our models are fairly similar except for Washington (WA), Wyoming (WY), Idiana (ID) and Kentucky (KY).
+Looking at the mean relative error for each state however, we can recognize some quirks of our model. It consistently predict an average electricity price higher than the ground truth, with the median error around 8%.
 
 ![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_error_visualization.svg)
+
+Plotted next is the confidence interval of the predictions which denotes where 95% of the relative absolute errors are located. We can see that for most of the states the error of our models are fairly similar except for Washington (WA), Wyoming (WY), Idiana (ID) and Kentucky (KY).
+
+![Prediction 95% confidence interval for all US States](./images/supervised/state_confidence_abs_error_visualization.svg)
 
 Plotted below are the relative error of our predictions for all US states for the years 1998-2019.
 
