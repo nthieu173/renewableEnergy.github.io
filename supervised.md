@@ -11,6 +11,10 @@ Our final model consists of sixteen hidden layers with 128 nodes each.
 ## Training Process
 ### Hyperparameter Tuning
 ### Splitting dataset for training and validation
+We use our dataset from the year 1998-2016 as our training set and our dataset from the year 2017-2019 as our validation set. The 1998-2016 dataset was the most accurate since it had no interpolated data while the 2017-2019 was not as accurate since it had interpolated Direct Normal Irradiance data. We simply took the DNI for the year 2016 and repeated it for the year 2017-2019. This probably resulted in a lower DNI than reality because there seems to be an upward trend of DNI growth over the years.
+
+Our reason for splitting it this way is because we will always be training our model on past years to predict future years. By splitting it this way, we simulate what might happen when we use our model to predict the electricity price of the future.
+
 ### Loss
 
 ![Training and Validation loss over Epochs for our final model](./images/model_3.98.svg)
