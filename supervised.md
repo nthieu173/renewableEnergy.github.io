@@ -9,14 +9,18 @@ Subsequently, we experimented with the design of our model architecture by varyi
 Our final model consists of sixteen hidden layers with 128 nodes each with LeakyRELU as our activation function on all layers except for the final one. 
 
 ## Training Process
+Our model was trained on data from all 50 states from the years 1998 to 2016. As mentioned above, a fifth of the dataset was reserved for the validation set. The years 2017 through 2019 were reserved for final testing and at no point in training did the model see data from these years.
+
 ### Hyperparameter Tuning
+We experimented with a variety of activation functions, number of hidden layers, width of hidden layers, and even tried to adpot an ensemble model of networks in an effort to improve our final error scores. The ensemble models converged well, however our final model outperformed them on our test data and we abandoned the ensemble method.
+
 ### Splitting dataset for training and validation
 We use our dataset from the year 1998-2016 as our training set and our dataset from the year 2017-2019 as our validation set. The 1998-2016 dataset was the most accurate since it had no interpolated data while the 2017-2019 was not as accurate since it had interpolated Direct Normal Irradiance data. We simply took the DNI for the year 2016 and repeated it for the year 2017-2019. This probably resulted in a lower DNI than reality because there seems to be an upward trend of DNI growth over the years.
 
 Our reason for splitting it this way is because we will always be training our model on past years to predict future years. By splitting it this way, we simulate what might happen when we use our model to predict the electricity price of the future.
 
 ### Loss
-
+Below is the loss graph of our final model, which has the lowest overall error on our ultimate test set (the years 2017-2019). Although some other models we trained converged in a smoother manner, ultimately this model still performs well. We see a convergence of losses and most importantly, an improvement in validation loss.
 ![Training and Validation loss over Epochs for our final model](./images/model_3.98.svg)
 
 ## Error Analysis
