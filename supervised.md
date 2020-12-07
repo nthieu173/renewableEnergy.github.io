@@ -16,7 +16,7 @@ We experimented with a variety of activation functions, number of hidden layers,
 
 ![Ensemble](./images/model2_h.png)
 
-In the end, we went with a fairly deep and thin network because our number of features where fairly low (~20) and 
+In the end, we went with a fairly deep and thin network because our number of features where fairly low (~20) and deeper networks seems to do a better job generalizing our data.
 
 ### Splitting dataset for training and validation
 Our final model was trained differently from the models being used for hyperparameter tuning. Instead of using a portion of 1998-2016 dataset as the validation set, we used the dataset from the year 2017-2019 as the validation set and used the entire dataset in 1998-2016 for our training set.
