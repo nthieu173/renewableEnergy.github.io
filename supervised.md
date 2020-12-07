@@ -12,7 +12,7 @@ Our final model consists of sixteen hidden layers with 128 nodes each with Leaky
 Our initial models were trained on data from all 50 states from the years 1998 to 2016. As mentioned above, a fifth of the dataset was reserved for the validation set. The years 2017 through 2019 were reserved for final testing and at no point in training did the model see data from these years.
 
 ### Hyperparameter Tuning
-We experimented with a variety of activation functions, number of hidden layers, width of hidden layers, and even tried to adpot an ensemble model of networks in an effort to improve our final error scores. The ensemble models converged well, however our final model outperformed them on our test data and we abandoned the ensemble method. A loss graph below demonstrates our performance here.
+We experimented with a variety of activation functions, number of hidden layers, width of hidden layers, and even tried to adopt an ensemble model of networks in an effort to improve our final error scores. The ensemble models converged well, however our final model outperformed them on our test data and we abandoned the ensemble method. A loss graph below demonstrates our performance here.
 
 ![Ensemble](./images/model2_h.png)
 
