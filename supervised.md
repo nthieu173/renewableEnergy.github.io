@@ -31,7 +31,7 @@ Below is the loss graph of our final model, which has the lowest overall error o
 ![Training and Validation loss over Epochs for our final model](./images/model_3.98.svg)
 
 ## Error Analysis
-Looking at the mean absolute error of our model's prediction in each year, we can see that our model does not perform significantly worse or significantly better in any of the year, with the mean mean error staying around 9%.
+Looking at the mean absolute error of our model's prediction in each year, we can see that our model does not perform significantly worse or significantly better in any of the year, with the mean error staying around 9%.
 
 ![Prediction error for each year](./images/supervised/year_error_visualization.svg)
 
